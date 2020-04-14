@@ -53,5 +53,13 @@ describe('Bateria', () => {
       expect(findUser).not.toBeUndefined();
       expect(findUser.length).toBe(1);
     });
+
+    test('Test remove user', async () => {
+      await userService.remove('quizfoobar@quiz.com');
+      const removedUser = await userService.find('quizfoobar@quiz.com');
+
+      expect(removedUser.length).toBe(0);
+
+    });
   });
 });

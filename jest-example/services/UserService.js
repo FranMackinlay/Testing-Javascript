@@ -23,6 +23,14 @@ class UserService {
     return this.asyncFunction(user);
   }
 
+  remove(email) {
+    return this.asyncFunction(
+      this._users.splice(
+        this._users.findIndex((user) => user.email === email),
+        1)
+    );
+  }
+
   asyncFunction(val) {
     return new Promise((resolve) => {
       setTimeout(function () {
