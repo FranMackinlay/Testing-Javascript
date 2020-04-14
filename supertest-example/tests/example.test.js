@@ -21,9 +21,7 @@ describe('Testing backend', () => {
 
   test('[NO AUTH] POST /car should return a car object', async () => {
     const car1 = new Car('Tesla', 450);
-    console.log(car1);
     const response = await request(app).post('/car').send(car1).expect(200);
-
 
     expect(response.body.car).toBeDefined();
     expect(response.body.car._model).toBe('Tesla');
