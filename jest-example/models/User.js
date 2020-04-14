@@ -1,9 +1,10 @@
 class User {
-  constructor(name, lastName, email, termsAndConditions) {
+  constructor(name, lastName, email, termsAndConditions, dni) {
     this._name = name;
     this._lastName = lastName;
     this._email = email;
     this._termsAndConditions = termsAndConditions;
+    this._dni = dni;
   }
 
   get name() {
@@ -20,6 +21,10 @@ class User {
 
   get termsAndConditions() {
     return this._termsAndConditions;
+  }
+
+  get dni() {
+    return this._dni;
   }
 
 };

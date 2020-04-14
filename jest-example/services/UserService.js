@@ -26,9 +26,13 @@ class UserService {
   remove(email) {
     return this.asyncFunction(
       this._users.splice(
-        this._users.findIndex((user) => user.email === email),
-        1)
+        this._users.findIndex((user) => user.email === email), 1)
     );
+  }
+
+  findByDni(dni) {
+    const user = this._users.find(user => user.dni === dni);
+    return this.asyncFunction(user);
   }
 
   asyncFunction(val) {

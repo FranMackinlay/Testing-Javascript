@@ -35,9 +35,9 @@ describe('Bateria', () => {
 
     beforeAll(async () => {
       userService = new UserService();
-      const user1 = new User('Foo', 'Bar', 'foobar@quiz.com', true);
-      const user2 = new User('Bar', 'Foo', 'barfoo@quiz.com', false);
-      const user3 = new User('Foobarr', 'Quiz', 'quizfoobar@quiz.com', true);
+      const user1 = new User('Foo', 'Bar', 'foobar@quiz.com', true, '12345678');
+      const user2 = new User('Bar', 'Foo', 'barfoo@quiz.com', false, '87654321');
+      const user3 = new User('Foobarr', 'Quiz', 'quizfoobar@quiz.com', true, '23456789');
 
       await userService.create(user1);
       await userService.create(user2);
@@ -60,6 +60,13 @@ describe('Bateria', () => {
 
       expect(removedUser.length).toBe(0);
 
+    });
+
+    test('Test Find By DNI', async () => {
+      const findUser = await userService.findByDni('12345678')
+
+      expect(findUser.dni).not.toBeUndefined();
+      expect(findUser.dni.length).toBe(8);
     });
   });
 });
