@@ -1,116 +1,148 @@
-const { suma, resta, sumaArray, restaArray, calculadora } = require('../index');
 
-// describe('Bateria de tests', () => {
-//   test('Test 1', () => {
-//     const a = true;
 
-//     expect(a).toBe(true);
+// * Function that compares two strings (regarding its whitespaces) no case sensitive.
+// const { compareString } = require('../index');
+// describe('CompareString test', () => {
+//   test('Two equal strings', () => {
+//     const result = compareString('hola', 'hola');
+//     expect(result).toBe(true);
 //   });
 
-//   test('Test 2', () => {
-//     const b = 'keepcoding';
+//   test('Two equal strings but with different whitespaces', () => {
+//     const result = compareString('ho l a', 'h ola');
+//     expect(result).toBe(true);
+//   });
 
-//     expect(b).toBe('keepcoding');
+//   test('Two different strings', () => {
+//     const result = compareString('hola', 'adios');
+//     expect(result).toBe(false);
+//   });
+//   test('Two equal strings but with diferent uppercase and lowercase letters', () => {
+//     const result = compareString('hola', 'HOLA');
+//     expect(result).toBe(true);
 //   });
 // });
 
-const { compareString } = require('../index');
+//* Function that sums the even values in an array and substract
+//* the odd values, and returns its absolute value
+const { evenOdd, absoluteValue, theFunction } = require('../index');
+describe('sumEvenSubOdd test', () => {
+  describe('Sum even and substract odd', () => {
+    test('All even', () => {
+      const result = evenOdd([2, 4, 8]);
+      expect(result).toBe(14);
+    });
 
-// * Funcion que compare dos strings (obviando los espacios) no case sensitive.
-describe('CompareString test', () => {
-  test('Dos strings exactamente iguales', () => {
-    const result = compareString('hola', 'hola');
-    expect(result).toBe(true);
+    test('All odd', () => {
+      const result = evenOdd([1, 3, 5]);
+      expect(result).toBe(-7);
+    });
+
+    test('Even and Odd', () => {
+      const result = evenOdd([1, 4, 3]);
+      expect(result).toBe(2);
+    });
   });
 
-  test('Dos strings exactamente iguales pero con diferentes espacios', () => {
-    const result = compareString('ho l a', 'h ola');
-    expect(result).toBe(true);
+  describe('Absolute value', () => {
+    test('Negative value', () => {
+      const result = absoluteValue(-5);
+      expect(result).toBe(5);
+    });
+
+    test('Positive value', () => {
+      const result = absoluteValue(5);
+      expect(result).toBe(5);
+    });
+
+    test('0 value', () => {
+      const result = absoluteValue(0);
+      expect(result).toBe(0);
+    });
   });
 
-  test('Dos strings diferentes', () => {
-    const result = compareString('hola', 'adios');
-    expect(result).toBe(false);
-  });
-  test('Dos strings exactamente iguales pero con mayusculas y minusculas', () => {
-    const result = compareString('hola', 'HOLA');
-    expect(result).toBe(true);
+  test('Its alive ', () => {
+    const result = theFunction([-1, 2, 10, 200]);
+    expect(result).toBeGreaterThan(0)
   });
 });
 
-// describe('Test de la funcion suma', () => {
-//   test('Dos valores positivos', () => {
-//     const result = suma(2, 3);
+
+//* Class Examples
+// const { sum, sub, sumArray, subArray, calc } = require('../index');
+// describe('sum test', () => {
+//   test('Two positives values', () => {
+//     const result = sum(2, 3);
 
 //     expect(result).not.toBeUndefined();
 //     expect(result).toBe(5);
 //   });
 
-//   test('Un valor negativo', () => {
-//     const result = suma(-3, 2);
+//   test('Negative value', () => {
+//     const result = sum(-3, 2);
 
 //     expect(result).toBe(-1);
 //   })
 // });
 
-// describe('Test de la funcion resta', () => {
-//   test('Restar dos valores positivos', () => {
-//     const result = resta(15, 5);
+// describe('sub test', () => {
+//   test('Sub two positive values', () => {
+//     const result = sub(15, 5);
 
 //     expect(result).toBe(10);
 //   });
 
-//   test('Restar dos valores negativos', () => {
-//     const result = resta(-10, -5);
+//   test('Sub two negative values', () => {
+//     const result = sub(-10, -5);
 
 //     expect(result).toBe(-5);
 //   });
 
-//   test('Restar un valor positivo otro negativo', () => {
-//     const result = resta(-10, 5);
+//   test('Sub a negative value and a positive value', () => {
+//     const result = sub(-10, 5);
 
 //     expect(result).toBe(-15);
 //   });
 // });
 
-// describe('Test de sumaArray', () => {
-//   test('Suma array', () => {
-//     const result = sumaArray([1, 2, 3, 4]);
+// describe('Test of sumArray', () => {
+//   test('sum array', () => {
+//     const result = sumArray([1, 2, 3, 4]);
 
 //     expect(result).toBe(10);
 //   });
 
-//   test('Cadenas', () => {
-//     const result = sumaArray(['Hola', ' ', 'Mundo']);
+//   test('Strings', () => {
+//     const result = sumArray(['Hola', ' ', 'Mundo']);
 
 //     expect(result).toBeUndefined();
 //   });
 // });
 
-// describe('Test de restaArray', () => {
-//   test('Resta array', () => {
-//     const result = restaArray([1, 2, 3, 4]);
+// describe('Test of subArray', () => {
+//   test('sub array', () => {
+//     const result = subArray([1, 2, 3, 4]);
 
 //     expect(result).toBe(-10);
 //   });
 
-//   test('Valores no permitidos', () => {
-//     const result = restaArray([4, 'null', true]);
+//   test('Invalid values', () => {
+//     const result = subArray([4, 'null', true]);
 
 //     expect(result).toBeUndefined();
 //   });
 // });
 
-// describe('Test de Calculadora', () => {
-//   test('Calculadora suma', () => {
-//     const result = calculadora('suma', [1, 2, 3, 4]);
+// describe('Calc test', () => {
+//   test('Calc sum', () => {
+//     const result = calc('sum', [1, 2, 3, 4]);
 
 //     expect(result).toBe(10);
 //   });
-//   test('Calculadora default', () => {
-//     const result = calculadora('multiplicar', [1, 2, 3, 4]);
+//   test('Calc default', () => {
+//     const result = calc('multiply', [1, 2, 3, 4]);
 
-//     expect(result).toBe('Operacion Invalida');
+//     expect(result).toBe('Invalid operation');
 //   });
 
 // });
