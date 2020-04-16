@@ -24,8 +24,8 @@ describe('Testing backend', () => {
     const response = await request(app).post('/car').send(car1).expect(200);
 
     expect(response.body.car).toBeDefined();
-    expect(response.body.car._model).toBe('Tesla');
-    expect(response.body.car._cv).toBe(450);
+    expect(response.body.car.model).toBe('Tesla');
+    expect(response.body.car.cv).toBe(450);
 
   });
 });

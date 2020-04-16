@@ -13,11 +13,13 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/car', (req, res) => {
+  let Cars = {};
 
   const car = new Car(req.body._model, req.body._cv);
-  carService.push(car);
+  Cars.model = car._model;
+  Cars.cv = car._cv;
 
-  res.status(200).json({ carService: car });
+  res.status(200).json({ car: Cars });
 });
 
 module.exports = app;
