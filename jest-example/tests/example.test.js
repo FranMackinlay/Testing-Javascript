@@ -1,16 +1,40 @@
 const { suma, resta, sumaArray, restaArray, calculadora } = require('../index');
 
-describe('Bateria de tests', () => {
-  test('Test 1', () => {
-    const a = true;
+// describe('Bateria de tests', () => {
+//   test('Test 1', () => {
+//     const a = true;
 
-    expect(a).toBe(true);
+//     expect(a).toBe(true);
+//   });
+
+//   test('Test 2', () => {
+//     const b = 'keepcoding';
+
+//     expect(b).toBe('keepcoding');
+//   });
+// });
+
+const { compareString } = require('../index');
+
+// * Funcion que compare dos strings (obviando los espacios) no case sensitive.
+describe('CompareString test', () => {
+  test('Dos strings exactamente iguales', () => {
+    const result = compareString('hola', 'hola');
+    expect(result).toBe(true);
   });
 
-  test('Test 2', () => {
-    const b = 'keepcoding';
+  test('Dos strings exactamente iguales pero con diferentes espacios', () => {
+    const result = compareString('ho l a', 'h ola');
+    expect(result).toBe(true);
+  });
 
-    expect(b).toBe('keepcoding');
+  test('Dos strings diferentes', () => {
+    const result = compareString('hola', 'adios');
+    expect(result).toBe(false);
+  });
+  test('Dos strings exactamente iguales pero con mayusculas y minusculas', () => {
+    const result = compareString('hola', 'HOLA');
+    expect(result).toBe(true);
   });
 });
 

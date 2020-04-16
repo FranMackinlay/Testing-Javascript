@@ -50,6 +50,11 @@ const calculadora = (operation, arr) => {
       break;
   }
 }
+const compareString = (val1, val2) => {
+
+  if (val1.replace(/ /g, '').toUpperCase() === val2.replace(/ /g, '').toUpperCase()) return true;
+  return false;
+};
 
 module.exports = {
   suma,
@@ -57,4 +62,5 @@ module.exports = {
   sumaArray,
   restaArray,
   calculadora,
+  compareString
 };
